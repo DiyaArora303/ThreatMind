@@ -1,0 +1,68 @@
+{
+  "scan_time": "2026-03-25 14:44:04",
+  "total_alerts": 5,
+  "critical": 2,
+  "high": 3,
+  "alerts": [
+    {
+      "severity": "HIGH",
+      "rule": "BRUTE_FORCE",
+      "description": "185.220.101.45 has failed login 5+ times against user 'admin'",
+      "timestamp": "2026-03-25 12:17:40",
+      "user": "admin",
+      "source_ip": "185.220.101.45",
+      "dest_ip": "192.168.1.101",
+      "mitre_id": "T1110",
+      "mitre_name": "Brute Force",
+      "mitre_tactic": "Credential Access"
+    },
+    {
+      "severity": "CRITICAL",
+      "rule": "BRUTE_SUCCESS",
+      "description": "BREACH: 185.220.101.45 succeeded after 7 failed attempts \u2014 account 'admin' likely compromised",
+      "timestamp": "2026-03-25 12:17:52",
+      "user": "admin",
+      "source_ip": "185.220.101.45",
+      "dest_ip": "192.168.1.101",
+      "mitre_id": "T1078",
+      "mitre_name": "Valid Accounts",
+      "mitre_tactic": "Initial Access"
+    },
+    {
+      "severity": "HIGH",
+      "rule": "SENSITIVE_FILE",
+      "description": "Sensitive file access by 'admin' \u2014 keyword 'password' detected in: Accessed sensitive file: C:\\passwords.txt",
+      "timestamp": "2026-03-25 12:17:57",
+      "user": "admin",
+      "source_ip": "185.220.101.45",
+      "dest_ip": "192.168.1.101",
+      "mitre_id": "T1083",
+      "mitre_name": "File & Directory Discovery",
+      "mitre_tactic": "Discovery"
+    },
+    {
+      "severity": "HIGH",
+      "rule": "SENSITIVE_FILE",
+      "description": "Sensitive file access by 'admin' \u2014 keyword 'credential' detected in: Accessed sensitive file: C:\\Users\\admin\\Documents\\credentials.xlsx",
+      "timestamp": "2026-03-25 12:17:57",
+      "user": "admin",
+      "source_ip": "185.220.101.45",
+      "dest_ip": "192.168.1.101",
+      "mitre_id": "T1083",
+      "mitre_name": "File & Directory Discovery",
+      "mitre_tactic": "Discovery"
+    },
+    {
+      "severity": "CRITICAL",
+      "rule": "EXTERNAL_CONN",
+      "description": "Possible exfiltration: internal host connecting to 45.33.32.156 on suspicious port 4444",
+      "timestamp": "2026-03-25 12:18:07",
+      "user": "admin",
+      "source_ip": "192.168.1.101",
+      "dest_ip": "45.33.32.156",
+      "mitre_id": "T1041",
+      "mitre_name": "Exfiltration Over C2 Channel",
+      "mitre_tactic": "Exfiltration"
+    }
+  ]
+}

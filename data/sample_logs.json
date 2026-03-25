@@ -1,0 +1,326 @@
+[
+  {
+    "timestamp": "2026-03-25 12:17:32",
+    "event_type": "FILE_ACCESS",
+    "user": "john.smith",
+    "source_ip": "10.0.0.5",
+    "dest_ip": "10.0.0.5",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:17:32",
+    "event_type": "LOGIN_FAILED",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Failed login attempt 1",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:32",
+    "event_type": "FILE_ACCESS",
+    "user": "john.smith",
+    "source_ip": "10.0.0.5",
+    "dest_ip": "10.0.0.5",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:17:34",
+    "event_type": "LOGIN_FAILED",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Failed login attempt 2",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:36",
+    "event_type": "LOGIN_FAILED",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Failed login attempt 3",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:38",
+    "event_type": "LOGIN_FAILED",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Failed login attempt 4",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:40",
+    "event_type": "LOGIN_FAILED",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Failed login attempt 5",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:42",
+    "event_type": "LOGIN_FAILED",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Failed login attempt 6",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:44",
+    "event_type": "LOGIN_FAILED",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Failed login attempt 7",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:52",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Login succeeded after failed attempts",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:57",
+    "event_type": "FILE_ACCESS",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Accessed sensitive file: C:\\passwords.txt",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:17:57",
+    "event_type": "FILE_ACCESS",
+    "user": "admin",
+    "source_ip": "185.220.101.45",
+    "dest_ip": "192.168.1.101",
+    "details": "Accessed sensitive file: C:\\Users\\admin\\Documents\\credentials.xlsx",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:18:02",
+    "event_type": "NETWORK_CONN",
+    "user": "admin",
+    "source_ip": "192.168.1.101",
+    "dest_ip": "192.168.1.103",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:18:02",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "sarah.jones",
+    "source_ip": "192.168.1.102",
+    "dest_ip": "192.168.1.103",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:18:07",
+    "event_type": "NETWORK_CONN",
+    "user": "admin",
+    "source_ip": "192.168.1.101",
+    "dest_ip": "45.33.32.156",
+    "details": "Outbound connection to external IP on port 4444",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 12:18:32",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "john.smith",
+    "source_ip": "192.168.1.102",
+    "dest_ip": "192.168.1.101",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:18:32",
+    "event_type": "NETWORK_CONN",
+    "user": "admin",
+    "source_ip": "192.168.1.102",
+    "dest_ip": "192.168.1.101",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:19:02",
+    "event_type": "FILE_ACCESS",
+    "user": "admin",
+    "source_ip": "10.0.0.5",
+    "dest_ip": "192.168.1.102",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:19:02",
+    "event_type": "FILE_ACCESS",
+    "user": "admin",
+    "source_ip": "192.168.1.103",
+    "dest_ip": "192.168.1.102",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:19:32",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "sarah.jones",
+    "source_ip": "192.168.1.102",
+    "dest_ip": "10.0.0.5",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:19:32",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "admin",
+    "source_ip": "10.0.0.5",
+    "dest_ip": "192.168.1.102",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:20:02",
+    "event_type": "NETWORK_CONN",
+    "user": "sarah.jones",
+    "source_ip": "10.0.0.5",
+    "dest_ip": "192.168.1.103",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:20:02",
+    "event_type": "FILE_ACCESS",
+    "user": "john.smith",
+    "source_ip": "192.168.1.103",
+    "dest_ip": "192.168.1.102",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:20:32",
+    "event_type": "NETWORK_CONN",
+    "user": "sarah.jones",
+    "source_ip": "192.168.1.101",
+    "dest_ip": "192.168.1.101",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:20:32",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "admin",
+    "source_ip": "192.168.1.103",
+    "dest_ip": "192.168.1.103",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:21:02",
+    "event_type": "FILE_ACCESS",
+    "user": "sarah.jones",
+    "source_ip": "192.168.1.102",
+    "dest_ip": "192.168.1.102",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:21:02",
+    "event_type": "FILE_ACCESS",
+    "user": "admin",
+    "source_ip": "192.168.1.101",
+    "dest_ip": "192.168.1.101",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:21:32",
+    "event_type": "NETWORK_CONN",
+    "user": "john.smith",
+    "source_ip": "192.168.1.103",
+    "dest_ip": "10.0.0.5",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:21:32",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "admin",
+    "source_ip": "192.168.1.102",
+    "dest_ip": "10.0.0.5",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:22:02",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "john.smith",
+    "source_ip": "10.0.0.5",
+    "dest_ip": "192.168.1.102",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:22:02",
+    "event_type": "NETWORK_CONN",
+    "user": "admin",
+    "source_ip": "10.0.0.5",
+    "dest_ip": "192.168.1.103",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:22:32",
+    "event_type": "NETWORK_CONN",
+    "user": "john.smith",
+    "source_ip": "192.168.1.101",
+    "dest_ip": "10.0.0.5",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:23:02",
+    "event_type": "FILE_ACCESS",
+    "user": "admin",
+    "source_ip": "192.168.1.101",
+    "dest_ip": "192.168.1.103",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:23:32",
+    "event_type": "NETWORK_CONN",
+    "user": "john.smith",
+    "source_ip": "10.0.0.5",
+    "dest_ip": "192.168.1.101",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:24:02",
+    "event_type": "NETWORK_CONN",
+    "user": "john.smith",
+    "source_ip": "192.168.1.101",
+    "dest_ip": "10.0.0.5",
+    "details": "normal activity",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "2026-03-25 12:24:32",
+    "event_type": "LOGIN_SUCCESS",
+    "user": "john.smith",
+    "source_ip": "192.168.1.102",
+    "dest_ip": "192.168.1.102",
+    "details": "normal activity",
+    "is_malicious": false
+  }
+]

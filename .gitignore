@@ -1,0 +1,14 @@
+# Virtual environment — never upload this
+venv/
+
+# Python cache files — auto-generated, not needed
+__pycache__/
+*.pyc
+*.pyo
+
+# Sensitive data — never upload real logs or API keys
+*.env
+.env
+
+# VS Code settings
+.vscode/
