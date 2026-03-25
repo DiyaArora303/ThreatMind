@@ -1,0 +1,34 @@
+[
+  {
+    "timestamp": "/Date(1774431835000)/",
+    "event_type": "LOGIN_SUCCESS",
+    "event_id": 4624,
+    "source": "Windows Event Log",
+    "details": "An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tLAPTOP-0CKQI96R$\r\n\tAccount Domain:\t\tWORKGROUP\r\n\tLogon ID:\t\t0x3e7\r\n\r\nLogon Information:\r\n\tLogon Type:\t\t5\r\n\tR",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "/Date(1774431559000)/",
+    "event_type": "LOGIN_SUCCESS",
+    "event_id": 4624,
+    "source": "Windows Event Log",
+    "details": "An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tLAPTOP-0CKQI96R$\r\n\tAccount Domain:\t\tWORKGROUP\r\n\tLogon ID:\t\t0x3e7\r\n\r\nLogon Information:\r\n\tLogon Type:\t\t5\r\n\tR",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "/Date(1774431524000)/",
+    "event_type": "LOGIN_SUCCESS",
+    "event_id": 4624,
+    "source": "Windows Event Log",
+    "details": "An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tLAPTOP-0CKQI96R$\r\n\tAccount Domain:\t\tWORKGROUP\r\n\tLogon ID:\t\t0x3e7\r\n\r\nLogon Information:\r\n\tLogon Type:\t\t5\r\n\tR",
+    "is_malicious": false
+  },
+  {
+    "timestamp": "/Date(1774431352000)/",
+    "event_type": "LOGIN_SUCCESS",
+    "event_id": 4624,
+    "source": "Windows Event Log",
+    "details": "An account was successfully logged on.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-18\r\n\tAccount Name:\t\tLAPTOP-0CKQI96R$\r\n\tAccount Domain:\t\tWORKGROUP\r\n\tLogon ID:\t\t0x3e7\r\n\r\nLogon Information:\r\n\tLogon Type:\t\t5\r\n\tR",
+    "is_malicious": false
+  }
+]

@@ -1,0 +1,502 @@
+[
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://guv.uxq.mybluehost.me/website_72a929c3/input/login.php",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://u.to/YVx3Ig",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://utsav568.github.io/github.io/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://bhagirath0111.github.io/Amazon1/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://eemansiddique.github.io/sales-force-static-website",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://kiucknlogin.webflow.io/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://kumaraswamybommali.github.io/Ecommerce_UI_Project/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://aevilop.github.io/my-netflix-clone/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://robinhood-invests-log-in.webflow.io/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://ranvijayysinghrathore.github.io/MusicPlayer",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://roblox.com.ly/games/8737602449/PLS-DONATE?privateServerLinkCode=28792299428079990719776509390909",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://roblox.com.ge/communities/4587297384/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://dfgdh1.pages.dev/gp/new-releases/books/12053/ref=zg_bsnr_pg_2_books?ie=UTF8/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://udev.informedgreetings.com/create-greeting",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://yogisandyoginis.com/z7miibp.htm",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://roblox.com.ge/games/104714047076534/Fun-combat?privateServerLinkCode=28917267103118307728389105348218",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://satyamhub7544.github.io/Netflix-Clone/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://ednaldofaceff-jpg.github.io/netflixpage/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://abhishek040906.github.io/img/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://www.robiox.com.py/games/5814304937/Outfit-Loader-Testing-Place?privateServerLinkCode=813439753017849932846507559915",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://currentnewsalerts.com/s/63bzgfsvbwsfcdx7y9/584dd8/90eab167-7429-489f-99f6-ce86e8d0d81a",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://roblox.com.py/users/8874830077/profile",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://shopee2449.blogspot.com/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://bestroute.aiko.com.mx/Controllers/Bonos/theme/login.php/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://musicx.live/pspsosao",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://gestaonucapital.s3.us-east-005.backblazeb2.com/aumento.html",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://insstagrram.github.io/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://78987select-fth0-capital-plans.pages.dev/help/contact/851780088854573/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://epdocambodia.org/components/com_user/img/bin/index.html",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://allan-affecting-modern-air.trycloudflare.com/jose7823432/common/login?id=",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://emmanuelobinna62-dotcom.github.io/ig-Clone",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://divyansh1502.github.io/Spotify",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://lnk.ink/www.robIox.com.share-code-08bc78fca17f69c57b139e0d2-type-Servers/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://netflix-clone-ruby-six.vercel.app/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://ushantsingh.github.io/Netflix-Clone",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://abhirajsinghrajpoot.github.io/NetflixClone",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://emmanuel3186.github.io/amazon-clone",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://gauravdhage.github.io/NetflixUI/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://ayushsingh728.github.io/Netflix-Clone",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://www.robiox.com.py/users/240787414796/profile",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://rblx.foo/s/rxgKLr",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "http://trezr-birdgge.pages.dev/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://accounts.bmwweb.academy/en/login",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://www.robiox.com.py/users/311923272397/profile",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://ledhfj-jihghjg.pages.dev/index.htm",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://spoorthikolloju-web.github.io/Amazon-clone/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://adityahulimane01.github.io/Netflix-Clone/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://dfgdh1.pages.dev/-/zh/Best-Sellers-Wii-/zgbs/videogames/10111124011/ref=zg_bs_pg_2_videogames?_encoding=UTF8",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://geliettech.github.io/NetflixClone/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  },
+  {
+    "timestamp": "2026-03-25 15:14:10",
+    "event_type": "PHISHING_URL",
+    "url": "https://satbhai444.github.io/NETFLIX-CLONE-PAGE/",
+    "target": "Unknown",
+    "verified": "yes",
+    "country": "Unknown",
+    "source": "OpenPhish",
+    "is_malicious": true
+  }
+]
