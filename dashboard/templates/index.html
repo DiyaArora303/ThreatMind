@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThreatMind — Intelligence Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --canvas:#f4f3f0;--surface:#faf9f7;--surface-raise:#ffffff;--surface-sink:#edece8;--surface-deep:#e4e2dc;
+  --ink-0:#0f0e0c;--ink-1:#2a2825;--ink-2:#5a5750;--ink-3:#8c897f;--ink-4:#b5b2a8;
+  --rule:#dddbd4;--rule-strong:#c2bfb5;
+  --accent:#1e3a5f;--accent-mid:#2d5280;--accent-light:rgba(30,58,95,.08);--accent-xlight:rgba(30,58,95,.04);
+  --crit-bg:#fdf0f0;--crit-ink:#8b1a1a;--crit-rule:#e8c5c5;
+  --high-bg:#fdf6ed;--high-ink:#7a4a00;--high-rule:#e8d5b0;
+  --med-bg:#f0f4f8;--med-ink:#1e3a5f;--med-rule:#c5d3e0;
+  --safe-bg:#f2f7f2;--safe-ink:#1a4a1a;--safe-rule:#c0d8c0;
+  --f-ui:'Sora',sans-serif;--f-data:'JetBrains Mono',monospace;
+  --sidebar-w:228px;--topbar-h:52px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:14px;}
+body{font-family:var(--f-ui);background:var(--canvas);color:var(--ink-1);height:100vh;display:flex;overflow:hidden;-webkit-font-smoothing:antialiased;}
+
+/* ── SIDEBAR ── */
+.sidebar{width:var(--sidebar-w);flex-shrink:0;background:var(--surface);border-right:1px solid var(--rule);display:flex;flex-direction:column;overflow:hidden;z-index:20;}
+.logo-block{padding:22px 22px 18px;border-bottom:1px solid var(--rule);}
+.logo-mark{display:flex;align-items:center;gap:10px;margin-bottom:2px;}
+.logo-symbol{width:28px;height:28px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-symbol svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:1.8;}
+.logo-name{font-size:15px;font-weight:600;color:var(--ink-0);letter-spacing:-.2px;}
+.logo-version{font-family:var(--f-data);font-size:10px;color:var(--ink-4);letter-spacing:.5px;margin-left:38px;}
+.sys-line{display:flex;align-items:center;gap:7px;margin-top:14px;padding:7px 10px;background:var(--surface-sink);border:1px solid var(--rule);}
+.sys-dot{width:6px;height:6px;background:#2d7a4a;border-radius:50%;flex-shrink:0;animation:sys-pulse 3s ease-in-out infinite;}
+@keyframes sys-pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.sys-text{font-family:var(--f-data);font-size:9.5px;color:var(--ink-3);letter-spacing:.8px;text-transform:uppercase;}
+.nav-block{flex:1;overflow-y:auto;padding:8px 0;}
+.nav-group-label{font-family:var(--f-data);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-4);padding:16px 22px 6px;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 22px;font-size:13px;font-weight:400;color:var(--ink-2);cursor:pointer;transition:color .15s,background .15s;border-left:2px solid transparent;user-select:none;}
+.nav-item:hover{color:var(--ink-0);background:var(--surface-sink);}
+.nav-item.active{color:var(--accent);background:var(--accent-xlight);border-left-color:var(--accent);font-weight:500;}
+.nav-icon{width:15px;height:15px;flex-shrink:0;opacity:.5;}
+.nav-item.active .nav-icon{opacity:1;}
+.nav-count{margin-left:auto;font-family:var(--f-data);font-size:10px;color:var(--crit-ink);background:var(--crit-bg);border:1px solid var(--crit-rule);padding:1px 7px;font-weight:600;display:none;}
+.nav-count.show{display:block;}
+.sidebar-foot{border-top:1px solid var(--rule);padding:16px 22px;background:var(--surface-sink);}
+.tl-label{font-family:var(--f-data);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-4);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;}
+.tl-value{font-weight:600;font-size:10px;color:var(--crit-ink);}
+.tl-track{display:flex;gap:3px;height:3px;}
+.tl-seg{flex:1;background:var(--rule-strong);transition:background .6s;}
+.tl-seg.on-l{background:#2d7a4a;}.tl-seg.on-m{background:#7a6000;}.tl-seg.on-h{background:#8b3a00;}.tl-seg.on-c{background:var(--crit-ink);}
+.last-scan-t{font-family:var(--f-data);font-size:9.5px;color:var(--ink-4);margin-top:10px;}
+
+/* ── MAIN ── */
+.main-wrap{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden;}
+.topbar{height:var(--topbar-h);background:var(--surface);border-bottom:1px solid var(--rule);display:flex;align-items:center;padding:0 28px;gap:14px;flex-shrink:0;}
+.breadcrumb{font-size:12px;color:var(--ink-3);flex:1;display:flex;align-items:center;gap:6px;}
+.breadcrumb b{color:var(--ink-1);font-weight:500;}
+.bc-sep{color:var(--ink-4);}
+.topbar-clock{font-family:var(--f-data);font-size:11px;color:var(--ink-3);}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;font-family:var(--f-ui);font-size:12px;font-weight:500;cursor:pointer;border:1px solid transparent;transition:all .15s;white-space:nowrap;}
+.btn svg{width:13px;height:13px;flex-shrink:0;}
+.btn-outline{background:transparent;color:var(--ink-2);border-color:var(--rule-strong);}
+.btn-outline:hover{color:var(--ink-0);border-color:var(--ink-3);background:var(--surface-sink);}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+.btn-primary:hover{background:var(--accent-mid);}
+.btn-primary:active{transform:scale(.98);}
+.btn-primary.running{background:var(--surface-sink);color:var(--ink-3);border-color:var(--rule);cursor:not-allowed;}
+
+/* ── CONTENT ── */
+.content-area{flex:1;overflow-y:auto;background:var(--canvas);}
+.content-area::-webkit-scrollbar{width:5px;}
+.content-area::-webkit-scrollbar-thumb{background:var(--rule-strong);}
+.page{display:none;padding:28px 32px;}
+.page.active{display:block;animation:pg-in .2s ease;}
+@keyframes pg-in{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── PAGE HEADER ── */
+.pg-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--rule);}
+.pg-title{font-size:20px;font-weight:600;color:var(--ink-0);letter-spacing:-.3px;line-height:1.1;}
+.pg-desc{font-size:12.5px;color:var(--ink-3);margin-top:4px;}
+
+/* ── KPI STRIP ── */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);background:var(--surface-raise);margin-bottom:20px;}
+.kpi-cell{padding:18px 22px;border-right:1px solid var(--rule);position:relative;transition:background .15s;}
+.kpi-cell:last-child{border-right:none;}
+.kpi-cell:hover{background:var(--surface-sink);}
+.kpi-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.kpi-cell.k-c::before{background:var(--crit-ink);}
+.kpi-cell.k-h::before{background:var(--high-ink);}
+.kpi-cell.k-m::before{background:var(--accent);}
+.kpi-cell.k-s::before{background:#2d7a4a;}
+.kpi-tag{font-family:var(--f-data);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;}
+.kpi-num{font-family:var(--f-data);font-size:34px;font-weight:300;line-height:1;letter-spacing:-1px;margin-bottom:6px;}
+.kpi-num.c-c{color:var(--crit-ink);}.kpi-num.c-h{color:var(--high-ink);}.kpi-num.c-m{color:var(--accent);}.kpi-num.c-s{color:#2d7a4a;}
+.kpi-sub{font-size:11px;color:var(--ink-3);}
+
+/* ── SECTION HEADER ── */
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;background:var(--surface-sink);border:1px solid var(--rule);border-bottom:none;}
+.sec-title{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;gap:8px;}
+.sec-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.d-c{background:var(--crit-ink);}.d-h{background:var(--high-ink);}.d-m{background:var(--accent);}.d-s{background:#2d7a4a;}.d-n{background:var(--ink-3);}
+.sec-meta{font-family:var(--f-data);font-size:10px;color:var(--ink-4);}
+.panel-body{background:var(--surface-raise);border:1px solid var(--rule);}
+.panel-body.pad{padding:20px;}
+
+/* ── TABLES ── */
+.t{width:100%;border-collapse:collapse;}
+.t th{font-family:var(--f-data);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);padding:9px 16px;text-align:left;font-weight:500;border-bottom:1px solid var(--rule);background:var(--surface-sink);white-space:nowrap;}
+.t td{padding:11px 16px;font-size:12.5px;color:var(--ink-1);border-bottom:1px solid var(--rule);vertical-align:middle;}
+.t tbody tr:last-child td{border-bottom:none;}
+.t tbody tr:hover td{background:var(--surface-sink);}
+.mono{font-family:var(--f-data);font-size:11px;color:var(--ink-2);}
+.mono.a{color:var(--accent);}
+.sev{display:inline-block;font-family:var(--f-data);font-size:9px;font-weight:600;letter-spacing:.8px;padding:3px 8px;border:1px solid;white-space:nowrap;}
+.sev-CRITICAL{background:var(--crit-bg);color:var(--crit-ink);border-color:var(--crit-rule);}
+.sev-HIGH{background:var(--high-bg);color:var(--high-ink);border-color:var(--high-rule);}
+.sev-MEDIUM{background:var(--med-bg);color:var(--med-ink);border-color:var(--med-rule);}
+.sev-LOW{background:var(--safe-bg);color:var(--safe-ink);border-color:var(--safe-rule);}
+
+/* ── LAYOUT ── */
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;}
+.gap{height:20px;}
+
+/* ── ATTACK CHAIN ── */
+.chain-wrap{display:flex;overflow-x:auto;padding:20px;}
+.chain-step{flex:1;min-width:110px;padding:14px;background:var(--canvas);border:1px solid var(--rule);position:relative;text-align:center;}
+.chain-step+.chain-step{border-left:none;}
+.chain-step::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--ink-4);font-size:13px;z-index:2;}
+.chain-step:last-child::after{display:none;}
+.chain-step.on{background:var(--surface-raise);border-color:var(--accent);}
+.chain-id{font-family:var(--f-data);font-size:10px;color:var(--accent);font-weight:600;margin-bottom:5px;}
+.chain-name{font-size:11px;font-weight:600;color:var(--ink-1);margin-bottom:3px;}
+.chain-tactic{font-family:var(--f-data);font-size:9px;color:var(--ink-3);}
+
+/* ── MITRE ROWS ── */
+.mitre-strip{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.mitre-row{display:grid;grid-template-columns:80px 180px 1fr 110px;gap:16px;background:var(--surface-raise);padding:14px 20px;align-items:start;transition:background .12s;}
+.mitre-row:hover{background:var(--surface-sink);}
+.mitre-row.hdr{background:var(--surface-sink);padding:9px 20px;}
+.mitre-row.hdr span{font-family:var(--f-data);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
+.m-id{font-family:var(--f-data);font-size:12px;font-weight:600;color:var(--accent);}
+.m-name{font-size:13px;font-weight:500;color:var(--ink-0);}
+.m-desc{font-size:12px;color:var(--ink-3);line-height:1.5;}
+.m-tactic{font-family:var(--f-data);font-size:10px;color:var(--ink-3);background:var(--surface-sink);border:1px solid var(--rule);padding:3px 8px;text-align:center;white-space:nowrap;}
+
+/* ── PHISHING BARS ── */
+.ph-bar-row{display:grid;grid-template-columns:70px 1fr 38px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);}
+.ph-bar-row:last-child{border-bottom:none;}
+.ph-bar-label{font-family:var(--f-data);font-size:10px;color:var(--ink-2);}
+.ph-bar-track{height:4px;background:var(--surface-sink);border:1px solid var(--rule);overflow:hidden;}
+.ph-bar-fill{height:100%;width:0;transition:width 1.1s cubic-bezier(.4,0,.2,1);}
+.fill-c{background:var(--crit-ink);}.fill-h{background:var(--high-ink);}.fill-m{background:var(--accent);}.fill-l{background:#2d7a4a;}
+.ph-count{font-family:var(--f-data);font-size:13px;font-weight:600;text-align:right;}
+.ph-count.cc{color:var(--crit-ink);}.ph-count.ch{color:var(--high-ink);}.ph-count.cm{color:var(--accent);}
+
+/* ── PROFILE TABLE ── */
+.pt{width:100%;border-collapse:collapse;}
+.pt tr{border-bottom:1px solid var(--rule);}
+.pt tr:last-child{border-bottom:none;}
+.pt tr:hover td{background:var(--surface-sink);}
+.pt td{padding:13px 18px;font-size:13px;}
+.pt-label{font-family:var(--f-data);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-3);width:160px;white-space:nowrap;}
+.pt-val{font-weight:500;color:var(--ink-0);}
+.pt-sub{font-size:11px;color:var(--ink-3);margin-top:2px;font-weight:400;}
+.score-wrap{display:flex;align-items:center;gap:12px;margin-top:4px;}
+.score-track{flex:1;height:3px;background:var(--surface-sink);border:1px solid var(--rule);overflow:hidden;}
+.score-fill{height:100%;background:var(--accent);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.score-n{font-family:var(--f-data);font-size:11px;color:var(--ink-2);white-space:nowrap;}
+
+/* ── REPORT ── */
+.report-chrome{background:var(--surface-raise);border:1px solid var(--rule);}
+.report-top{display:flex;align-items:center;justify-content:space-between;padding:9px 16px;background:var(--surface-sink);border-bottom:1px solid var(--rule);}
+.report-fname{font-family:var(--f-data);font-size:10.5px;color:var(--ink-3);}
+.report-tag{font-family:var(--f-data);font-size:9.5px;color:var(--ink-4);background:var(--surface-deep);border:1px solid var(--rule-strong);padding:2px 8px;}
+.report-body{padding:28px 32px;font-family:var(--f-data);font-size:12px;line-height:2;color:var(--ink-2);white-space:pre-wrap;max-height:500px;overflow-y:auto;}
+.report-body::-webkit-scrollbar{width:4px;}
+.report-body::-webkit-scrollbar-thumb{background:var(--rule-strong);}
+
+/* ── TERMINAL ── */
+.terminal{background:#0f1117;border:1px solid #2a2d35;font-family:var(--f-data);}
+.terminal-chrome{background:#1a1d26;border-bottom:1px solid #2a2d35;padding:9px 14px;display:flex;align-items:center;gap:14px;}
+.tc-dots{display:flex;gap:5px;}
+.tc-dot{width:10px;height:10px;border-radius:50%;}
+.terminal-out{padding:20px 24px;font-size:12px;line-height:2;min-height:160px;max-height:300px;overflow-y:auto;color:#8a9bb0;}
+.tline{opacity:0;animation:tl-show .25s forwards;}
+@keyframes tl-show{to{opacity:1;}}
+.t-ok{color:#5a9a6a;}.t-warn{color:#a07830;}.t-err{color:#a04040;}.t-info{color:#4a7a9a;}.t-cmd{color:#6a7a8a;}
+.t-cursor{display:inline-block;width:6px;height:13px;background:#5a9a6a;vertical-align:middle;margin-left:3px;animation:t-blink 1.1s step-end infinite;}
+@keyframes t-blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* ── SCAN PAGE ── */
+.scan-layout{display:grid;grid-template-columns:270px 1fr;gap:20px;}
+.scan-panel{background:var(--surface-raise);border:1px solid var(--rule);padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;}
+.scan-panel-title{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--ink-2);}
+.scan-desc{font-size:12.5px;color:var(--ink-3);line-height:1.7;}
+.smi-list{display:flex;flex-direction:column;gap:0;width:100%;}
+.smi{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--rule);font-size:12px;}
+.smi:last-child{border-bottom:none;}
+.smi-label{color:var(--ink-3);}.smi-value{font-family:var(--f-data);font-size:11px;color:var(--ink-1);}
+
+/* ── EMPTY ── */
+.empty{padding:40px 24px;text-align:center;color:var(--ink-4);}
+.empty-icon{font-size:22px;margin-bottom:10px;opacity:.4;}
+.empty-text{font-family:var(--f-data);font-size:11px;letter-spacing:.5px;}
+
+/* ── TOAST ── */
+.toast-tray{position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:8px;z-index:9999;pointer-events:none;}
+.toast-item{background:var(--surface-raise);border:1px solid var(--rule-strong);padding:12px 18px;font-size:12.5px;color:var(--ink-1);display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(0,0,0,.08);transform:translateX(110%);opacity:0;transition:all .3s cubic-bezier(.34,1.4,.64,1);pointer-events:auto;}
+.toast-item.in{transform:translateX(0);opacity:1;}
+.toast-bar{width:3px;align-self:stretch;flex-shrink:0;}
+.toast-bar.ok{background:#2d7a4a;}.toast-bar.warn{background:var(--high-ink);}.toast-bar.err{background:var(--crit-ink);}
+
+/* ── URL CELL ── */
+.url-cell{font-family:var(--f-data);font-size:11px;color:var(--ink-2);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.score-c{font-family:var(--f-data);font-size:12px;font-weight:600;}
+.score-c.hi{color:var(--crit-ink);}.score-c.md{color:var(--high-ink);}.score-c.lo{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar">
+  <div class="logo-block">
+    <div class="logo-mark">
+      <div class="logo-symbol">
+        <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6l-8-4z"/></svg>
+      </div>
+      <span class="logo-name">ThreatMind</span>
+    </div>
+    <div class="logo-version">v3.0 · Intelligence Platform</div>
+    <div class="sys-line">
+      <div class="sys-dot"></div>
+      <span class="sys-text">All engines operational</span>
+    </div>
+  </div>
+
+  <nav class="nav-block">
+    <div class="nav-group-label">Operations</div>
+    <div class="nav-item active" onclick="go('overview',this)">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/></svg>
+      Overview
+    </div>
+    <div class="nav-item" onclick="go('alerts',this)">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+      Live Alerts
+      <span class="nav-count" id="nav-crit">0</span>
+    </div>
+    <div class="nav-item" onclick="go('mitre',this)">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"/><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-1.261 1.26a1 1 0 101.414 1.415l1.261-1.261A4 4 0 1011 5z" clip-rule="evenodd"/></svg>
+      MITRE ATT&amp;CK
+    </div>
+
+    <div class="nav-group-label">Intelligence</div>
+    <div class="nav-item" onclick="go('phishing',this)">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clip-rule="evenodd"/></svg>
+      Phishing Intel
+    </div>
+    <div class="nav-item" onclick="go('actor',this)">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+      Actor Profile
+    </div>
+    <div class="nav-item" onclick="go('report',this)">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+      AI Report
+    </div>
+
+    <div class="nav-group-label">System</div>
+    <div class="nav-item" onclick="go('scan',this)">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+      Run Scan
+    </div>
+  </nav>
+
+  <div class="sidebar-foot">
+    <div class="tl-label">
+      <span>Threat Level</span>
+      <span class="tl-value" id="tl-val">ELEVATED</span>
+    </div>
+    <div class="tl-track" id="tl-track">
+      <div class="tl-seg on-l"></div>
+      <div class="tl-seg on-l"></div>
+      <div class="tl-seg on-m"></div>
+      <div class="tl-seg on-h"></div>
+      <div class="tl-seg"></div>
+    </div>
+    <div class="last-scan-t" id="last-scan">Last scan: not yet run</div>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main-wrap">
+  <div class="topbar">
+    <div class="breadcrumb">
+      <span>ThreatMind</span><span class="bc-sep">/</span><b id="bc">Overview</b>
+    </div>
+    <span class="topbar-clock" id="clock"></span>
+    <button class="btn btn-outline" onclick="refreshAll()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/></svg>
+      Refresh
+    </button>
+    <button class="btn btn-primary" id="topbar-scan-btn" onclick="runScan()">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+      Run Scan
+    </button>
+  </div>
+
+  <div class="content-area">
+
+    <!-- ── OVERVIEW ── -->
+    <div class="page active" id="page-overview">
+      <div class="pg-header">
+        <div>
+          <div class="pg-title">Security Overview</div>
+          <div class="pg-desc" id="ov-desc">Awaiting scan data — run a scan to populate this dashboard.</div>
+        </div>
+      </div>
+      <div class="kpi-strip">
+        <div class="kpi-cell k-c"><div class="kpi-tag">Critical Alerts</div><div class="kpi-num c-c" id="k-c">—</div><div class="kpi-sub">Immediate response required</div></div>
+        <div class="kpi-cell k-h"><div class="kpi-tag">High Alerts</div><div class="kpi-num c-h" id="k-h">—</div><div class="kpi-sub">Review within 60 minutes</div></div>
+        <div class="kpi-cell k-m"><div class="kpi-tag">MITRE Techniques</div><div class="kpi-num c-m" id="k-m">—</div><div class="kpi-sub">Unique TTPs identified</div></div>
+        <div class="kpi-cell k-s"><div class="kpi-tag">Phishing Threats</div><div class="kpi-num c-s" id="k-s">—</div><div class="kpi-sub">From live threat feeds</div></div>
+      </div>
+      <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-m"></div>Attack Chain</div><div class="sec-meta">MITRE ATT&amp;CK sequence</div></div>
+      <div class="panel-body">
+        <div class="chain-wrap" id="ov-chain">
+          <div class="empty"><div class="empty-icon">→</div><div class="empty-text">No attack chain detected yet.</div></div>
+        </div>
+      </div>
+      <div class="gap"></div>
+      <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-c"></div>Recent Alerts</div><div class="sec-meta" id="ov-meta">—</div></div>
+      <div class="panel-body">
+        <table class="t">
+          <thead><tr><th>Severity</th><th>Rule</th><th>MITRE</th><th>Description</th><th>Source IP</th><th>Time</th></tr></thead>
+          <tbody id="ov-tbody"><tr><td colspan="6"><div class="empty"><div class="empty-text">No alerts — run a scan.</div></div></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── ALERTS ── -->
+    <div class="page" id="page-alerts">
+      <div class="pg-header"><div><div class="pg-title">Live Alerts</div><div class="pg-desc">All detection events from the current scan session.</div></div></div>
+      <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-c"></div>Alert Feed</div><div class="sec-meta" id="alerts-meta">—</div></div>
+      <div class="panel-body">
+        <table class="t">
+          <thead><tr><th>Severity</th><th>Rule</th><th>MITRE ID</th><th>Tactic</th><th>Description</th><th>User</th><th>Source IP</th><th>Time</th></tr></thead>
+          <tbody id="alerts-tbody"><tr><td colspan="8"><div class="empty"><div class="empty-text">No alerts yet.</div></div></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── MITRE ── -->
+    <div class="page" id="page-mitre">
+      <div class="pg-header"><div><div class="pg-title">MITRE ATT&amp;CK</div><div class="pg-desc">Adversarial techniques and tactics identified in this incident.</div></div></div>
+      <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-m"></div>Detected Techniques</div><div class="sec-meta" id="mitre-meta">—</div></div>
+      <div class="panel-body">
+        <div class="mitre-strip">
+          <div class="mitre-row hdr"><span>ID</span><span>Technique</span><span>Description</span><span>Tactic</span></div>
+          <div id="mitre-rows"><div class="empty"><div class="empty-text">No techniques detected.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PHISHING ── -->
+    <div class="page" id="page-phishing">
+      <div class="pg-header"><div><div class="pg-title">Phishing Intelligence</div><div class="pg-desc">Real-time analysis from OpenPhish and PhishTank live feeds.</div></div></div>
+      <div class="split">
+        <div>
+          <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-c"></div>Top Threats</div><div class="sec-meta" id="phish-meta">—</div></div>
+          <div class="panel-body">
+            <table class="t">
+              <thead><tr><th>Risk</th><th>URL</th><th>Score</th><th>Domain</th></tr></thead>
+              <tbody id="phish-url-tbody"><tr><td colspan="4"><div class="empty"><div class="empty-text">No data loaded.</div></div></td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-n"></div>Risk Distribution</div></div>
+          <div class="panel-body pad"><div id="ph-bars"><div class="empty"><div class="empty-text">No data.</div></div></div></div>
+          <div class="gap"></div>
+          <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-n"></div>Summary</div></div>
+          <div class="panel-body">
+            <table class="pt"><tbody>
+              <tr><td class="pt-label">Total Analyzed</td><td class="pt-val mono" id="ph-total">—</td></tr>
+              <tr><td class="pt-label">Critical</td><td class="pt-val mono a" id="ph-crit">—</td></tr>
+              <tr><td class="pt-label">High Risk</td><td class="pt-val mono" id="ph-high">—</td></tr>
+              <tr><td class="pt-label">Medium Risk</td><td class="pt-val mono" id="ph-med">—</td></tr>
+              <tr><td class="pt-label">Source</td><td class="pt-val">OpenPhish / PhishTank</td></tr>
+            </tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ACTOR PROFILE ── -->
+    <div class="page" id="page-actor">
+      <div class="pg-header"><div><div class="pg-title">Threat Actor Profile</div><div class="pg-desc">Behavioral and psychological assessment derived from detection data and the full profiler module.</div></div></div>
+      <div class="split">
+        <div>
+          <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-c"></div>Assessment</div></div>
+          <div class="panel-body">
+            <table class="pt"><tbody id="actor-tbody">
+              <tr><td colspan="2"><div class="empty"><div class="empty-text">Run a scan to generate profile.</div></div></td></tr>
+            </tbody></table>
+          </div>
+        </div>
+        <div>
+          <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-n"></div>Behavioral Signals</div></div>
+          <div class="panel-body">
+            <table class="pt"><tbody id="actor-sigs">
+              <tr><td colspan="2"><div class="empty"><div class="empty-text">No signals detected.</div></div></td></tr>
+            </tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── AI REPORT ── -->
+    <div class="page" id="page-report">
+      <div class="pg-header">
+        <div><div class="pg-title">AI Incident Report</div><div class="pg-desc">Generated by Mistral 7B running locally. No data transmitted externally.</div></div>
+        <button class="btn btn-outline" onclick="copyReport()">Copy Report</button>
+      </div>
+      <div class="report-chrome">
+        <div class="report-top">
+          <span class="report-fname">threatmind_incident_report.txt</span>
+          <span class="report-tag">Mistral 7B · Local · Offline</span>
+        </div>
+        <div class="report-body" id="report-body">Run the AI report generator, then refresh this page.</div>
+      </div>
+    </div>
+
+    <!-- ── SCAN ── -->
+    <div class="page" id="page-scan">
+      <div class="pg-header"><div><div class="pg-title">Detection Engine</div><div class="pg-desc">Execute the full ThreatMind pipeline against your log data.</div></div></div>
+      <div class="scan-layout">
+        <div class="scan-panel">
+          <div class="scan-panel-title">Engine Configuration</div>
+          <div class="smi-list">
+            <div class="smi"><span class="smi-label">Source file</span><span class="smi-value">data/sample_logs.json</span></div>
+            <div class="smi"><span class="smi-label">Detection rules</span><span class="smi-value">4 active</span></div>
+            <div class="smi"><span class="smi-label">Brute force threshold</span><span class="smi-value">5 attempts</span></div>
+            <div class="smi"><span class="smi-label">MITRE mapping</span><span class="smi-value">Enabled</span></div>
+            <div class="smi"><span class="smi-label">Alert persistence</span><span class="smi-value">reports/alerts.json</span></div>
+          </div>
+          <button class="btn btn-primary" id="big-scan-btn" onclick="runScan()" style="width:100%;justify-content:center;padding:11px;">
+            <svg viewBox="0 0 20 20" fill="currentColor" style="width:13px;height:13px"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+            Execute Scan
+          </button>
+          <div class="scan-desc">Analyzes log entries against all detection rules and maps findings to MITRE ATT&amp;CK. Results are saved automatically.</div>
+        </div>
+        <div>
+          <div class="sec-hdr"><div class="sec-title"><div class="sec-dot d-s"></div>Scan Output</div></div>
+          <div class="terminal">
+            <div class="terminal-chrome">
+              <div class="tc-dots">
+                <div class="tc-dot" style="background:#ff5f57"></div>
+                <div class="tc-dot" style="background:#febc2e"></div>
+                <div class="tc-dot" style="background:#28c840"></div>
+              </div>
+              <span style="font-family:var(--f-data);font-size:10px;color:#4a5568;margin-left:8px;">threatmind · detection engine</span>
+            </div>
+            <div class="terminal-out" id="terminal-out">
+              <span class="t-cmd">$ threatmind --detect --source data/sample_logs.json</span><br>
+              <span style="color:#4a5568">Waiting for execution...<span class="t-cursor"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content-area -->
+</div><!-- /main-wrap -->
+
+<div class="toast-tray" id="toast-tray"></div>
+
+<script>
+// ══════════════════════════════════════════════
+//  THREATMIND v3  ·  DASHBOARD CONTROLLER
+//  All API calls, rendering, and scan logic.
+// ══════════════════════════════════════════════
+
+const PG = {
+  overview:'Overview', alerts:'Live Alerts', mitre:'MITRE ATT&CK',
+  phishing:'Phishing Intel', actor:'Actor Profile', report:'AI Report', scan:'Run Scan'
+};
+
+const MD = {
+  'T1110':'Repeated authentication attempts to gain access through credential guessing.',
+  'T1078':'Use of legitimate credentials, often obtained through brute force, to authenticate.',
+  'T1083':'Enumeration of files and directories to discover sensitive data and credentials.',
+  'T1041':'Data exfiltration via an existing command and control channel to an external destination.',
+  'T1571':'Communication over a non-standard port to bypass network monitoring.'
+};
+
+let scanning = false;
+
+// ── Navigation
+function go(page, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  el.classList.add('active');
+  document.getElementById('bc').textContent = PG[page];
+}
+
+// ── Live UTC clock
+function tick() {
+  const n = new Date(), p = v => String(v).padStart(2, '0');
+  document.getElementById('clock').textContent =
+    `${n.getUTCFullYear()}-${p(n.getUTCMonth()+1)}-${p(n.getUTCDate())}  ` +
+    `${p(n.getUTCHours())}:${p(n.getUTCMinutes())}:${p(n.getUTCSeconds())} UTC`;
+}
+setInterval(tick, 1000); tick();
+
+// ── Toast notifications
+function toast(msg, type = 'ok') {
+  const tray = document.getElementById('toast-tray');
+  const el = document.createElement('div');
+  el.className = 'toast-item';
+  el.innerHTML = `<div class="toast-bar ${type}"></div><span>${msg}</span>`;
+  tray.appendChild(el);
+  requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('in')));
+  setTimeout(() => { el.classList.remove('in'); setTimeout(() => el.remove(), 400); }, 3500);
+}
+
+// ── API: fetch alerts (SIEM detection results)
+async function fetchAlerts() {
+  try {
+    const r = await fetch('/api/alerts');
+    const d = await r.json();
+    renderAlerts(d);
+  } catch(e) {}
+}
+
+// ── API: fetch phishing analysis
+async function fetchPhishing() {
+  try {
+    const r = await fetch('/api/phishing');
+    const d = await r.json();
+    renderPhishing(d);
+  } catch(e) {}
+}
+
+// ── API: fetch latest AI report text
+async function fetchReport() {
+  try {
+    const r = await fetch('/api/report');
+    const d = await r.json();
+    if (d.report) document.getElementById('report-body').textContent = d.report;
+  } catch(e) {}
+}
+
+// ── API: fetch real psychological profile from profiler module
+async function fetchProfile() {
+  try {
+    const r = await fetch('/api/profile');
+    const d = await r.json();
+    // Only override actor page if profiler returned valid data
+    if (!d.error) renderRealProfile(d);
+  } catch(e) {}
+}
+
+// ── Refresh all data sources at once
+async function refreshAll() {
+  await Promise.all([fetchAlerts(), fetchPhishing(), fetchReport(), fetchProfile()]);
+  toast('Data refreshed');
+}
+
+// ── Render: SIEM alerts → updates overview, alerts table, MITRE page, attack chain
+function renderAlerts(d) {
+  if (!d || !d.alerts) return;
+  const A = d.alerts;
+
+  // KPI strip
+  document.getElementById('k-c').textContent = d.critical ?? '—';
+  document.getElementById('k-h').textContent = d.high ?? '—';
+  const uniq = [...new Set(A.map(a => a.mitre_id))];
+  document.getElementById('k-m').textContent = uniq.length;
+  document.getElementById('ov-desc').textContent =
+    `Last scan: ${d.scan_time || '—'}  ·  ${d.total_alerts} total events`;
+  document.getElementById('ov-meta').textContent = `${d.total_alerts} events`;
+  document.getElementById('alerts-meta').textContent =
+    `${d.total_alerts} total · ${d.critical} critical · ${d.high} high`;
+  document.getElementById('mitre-meta').textContent = `${uniq.length} unique techniques`;
+  document.getElementById('last-scan').textContent = `Last scan: ${d.scan_time || '—'}`;
+
+  // Critical badge on nav item
+  const badge = document.getElementById('nav-crit');
+  if (d.critical > 0) { badge.textContent = d.critical; badge.classList.add('show'); }
+
+  // Threat level indicator (sidebar footer)
+  updateTL(d.critical, d.high);
+
+  // Overview table (compact — 6 columns)
+  document.getElementById('ov-tbody').innerHTML = A.length
+    ? A.map(a => `
+        <tr>
+          <td><span class="sev sev-${a.severity}">${a.severity}</span></td>
+          <td style="font-weight:500">${a.rule.replace(/_/g,' ')}</td>
+          <td><span class="mono a">${a.mitre_id}</span></td>
+          <td style="color:var(--ink-2);font-size:12px">${a.description}</td>
+          <td><span class="mono">${a.source_ip}</span></td>
+          <td><span class="mono">${(a.timestamp||'').slice(11,19)}</span></td>
+        </tr>`).join('')
+    : `<tr><td colspan="6"><div class="empty"><div class="empty-text">No alerts.</div></div></td></tr>`;
+
+  // Full alerts table (8 columns)
+  document.getElementById('alerts-tbody').innerHTML = A.map(a => `
+    <tr>
+      <td><span class="sev sev-${a.severity}">${a.severity}</span></td>
+      <td style="font-weight:500;font-size:12px">${a.rule.replace(/_/g,' ')}</td>
+      <td><span class="mono a">${a.mitre_id}</span></td>
+      <td><span class="mono" style="font-size:10px">${a.mitre_tactic}</span></td>
+      <td style="color:var(--ink-2);font-size:12px">${a.description}</td>
+      <td><span class="mono">${a.user||'—'}</span></td>
+      <td><span class="mono">${a.source_ip}</span></td>
+      <td><span class="mono">${(a.timestamp||'').slice(11,19)}</span></td>
+    </tr>`).join('');
+
+  // Attack chain (deduplicated by MITRE ID, in order of first occurrence)
+  const seen = new Map();
+  A.forEach(a => { if (!seen.has(a.mitre_id)) seen.set(a.mitre_id, a); });
+  document.getElementById('ov-chain').innerHTML = [...seen.values()].map(a => `
+    <div class="chain-step on">
+      <div class="chain-id">${a.mitre_id}</div>
+      <div class="chain-name">${a.mitre_name}</div>
+      <div class="chain-tactic">${a.mitre_tactic}</div>
+    </div>`).join('');
+
+  // MITRE page rows
+  document.getElementById('mitre-rows').innerHTML = [...seen.values()].map(a => `
+    <div class="mitre-row">
+      <span class="m-id">${a.mitre_id}</span>
+      <span class="m-name">${a.mitre_name}</span>
+      <span class="m-desc">${MD[a.mitre_id] || 'Adversarial technique mapped to MITRE ATT&CK.'}</span>
+      <span class="m-tactic">${a.mitre_tactic}</span>
+    </div>`).join('');
+
+  // Fallback actor profile (JavaScript-derived) — overridden by fetchProfile() if profiler is available
+  buildActorFallback(A);
+}
+
+// ── Threat level bar (sidebar footer)
+function updateTL(crit, high) {
+  const segs = [...document.getElementById('tl-track').children];
+  const val  = document.getElementById('tl-val');
+  segs.forEach(s => s.className = 'tl-seg');
+  if (crit >= 2) {
+    segs[0].className='tl-seg on-l'; segs[1].className='tl-seg on-m';
+    segs[2].className='tl-seg on-h'; segs[3].className='tl-seg on-c'; segs[4].className='tl-seg on-c';
+    val.textContent='CRITICAL'; val.style.color='var(--crit-ink)';
+  } else if (crit === 1 || high >= 2) {
+    segs[0].className='tl-seg on-l'; segs[1].className='tl-seg on-m'; segs[2].className='tl-seg on-h';
+    val.textContent='HIGH'; val.style.color='var(--high-ink)';
+  } else {
+    segs[0].className='tl-seg on-l'; segs[1].className='tl-seg on-m';
+    val.textContent='ELEVATED'; val.style.color='var(--high-ink)';
+  }
+}
+
+// ── Actor profile fallback — derived from alert rules only, used if /api/profile fails
+function buildActorFallback(A) {
+  if (!A.length) return;
+  const hB = A.some(a => a.rule === 'BRUTE_FORCE');
+  const hE = A.some(a => a.rule === 'EXTERNAL_CONN');
+  const hC = A.some(a => a.rule === 'SENSITIVE_FILE');
+  const cr  = A.filter(a => a.severity === 'CRITICAL').length;
+  const sc  = Math.min((hB?20:0) + (hE?35:0) + (hC?25:0) + cr*10, 95);
+  const sk  = sc >= 75 ? 'Advanced' : sc >= 50 ? 'Intermediate' : 'Basic';
+  const at  = sc >= 70 ? 'Organized Ransomware Group' : 'Experienced Cybercriminal';
+
+  document.getElementById('actor-tbody').innerHTML = `
+    <tr><td class="pt-label">Actor Classification</td><td class="pt-val">${at}<div class="pt-sub">Inferred from behavioral chain (alert-derived)</div></td></tr>
+    <tr><td class="pt-label">Primary Motivation</td><td class="pt-val">${hE ? 'Financial — data exfiltration' : 'Opportunistic access'}</td></tr>
+    <tr><td class="pt-label">Skill Level</td><td class="pt-val">${sk}
+      <div class="score-wrap"><div class="score-track"><div class="score-fill" style="width:${sc}%"></div></div><span class="score-n">${sc}/100</span></div>
+    </td></tr>
+    <tr><td class="pt-label">Attack Pattern</td><td class="pt-val">Multi-stage, methodical<div class="pt-sub">${A.length} events · ${[...new Set(A.map(a=>a.mitre_id))].length} techniques</div></td></tr>
+    <tr><td class="pt-label">Emotional Pattern</td><td class="pt-val">Calm and deliberate<div class="pt-sub">Staged approach — not impulsive</div></td></tr>
+    <tr><td class="pt-label">Origin Estimate</td><td class="pt-val">Unknown — insufficient data</td></tr>`;
+
+  document.getElementById('actor-sigs').innerHTML = `
+    ${hB ? `<tr><td class="pt-label">Credential Attack</td><td class="pt-val">Brute force (T1110)<div class="pt-sub">Repeated failed logins before success</div></td></tr>` : ''}
+    ${hC ? `<tr><td class="pt-label">Reconnaissance</td><td class="pt-val">File discovery (T1083)<div class="pt-sub">Targeted credential files post-breach</div></td></tr>` : ''}
+    ${hE ? `<tr><td class="pt-label">Exfiltration</td><td class="pt-val" style="color:var(--crit-ink)">C2 channel open (T1041)<div class="pt-sub" style="color:var(--ink-3)">External connection on port 4444</div></td></tr>` : ''}
+    <tr><td class="pt-label">Attack Duration</td><td class="pt-val">~35 seconds<div class="pt-sub">Brute force to exfiltration — rapid execution</div></td></tr>`;
+}
+
+// ── Actor profile (real) — from /api/profile → profiler module
+// This overrides the fallback when the profiler runs successfully
+function renderRealProfile(p) {
+  const m  = p.motivation      || {};
+  const sk = p.skill_level     || {};
+  const or = p.origin          || {};
+  const em = p.emotional_state || {};
+
+  document.getElementById('actor-tbody').innerHTML = `
+    <tr><td class="pt-label">Actor Classification</td><td class="pt-val">${p.actor_type || 'Unknown'}<div class="pt-sub">From psychological profiler + SIEM chain</div></td></tr>
+    <tr><td class="pt-label">Primary Motivation</td><td class="pt-val">${m.primary || '—'}<div class="pt-sub">Confidence: ${m.confidence || 0}%</div></td></tr>
+    <tr><td class="pt-label">Skill Level</td><td class="pt-val">${sk.level || '—'}
+      <div class="score-wrap"><div class="score-track"><div class="score-fill" style="width:${sk.score || 0}%"></div></div><span class="score-n">${sk.score || 0}/100</span></div>
+      <div class="pt-sub">${sk.description || ''}</div>
+    </td></tr>
+    <tr><td class="pt-label">Origin Assessment</td><td class="pt-val">${or.assessment || '—'}<div class="pt-sub">Confidence: ${or.confidence || 0}%</div></td></tr>
+    <tr><td class="pt-label">Emotional State</td><td class="pt-val">${em.state || '—'}</td></tr>
+    <tr><td class="pt-label">Risk Note</td><td class="pt-val" style="color:var(--crit-ink)">${em.risk || '—'}</td></tr>`;
+
+  document.getElementById('actor-sigs').innerHTML = `
+    <tr><td class="pt-label">Motivation Signals</td><td class="pt-val mono">${JSON.stringify(m.scores || {}).replace(/[{}"]/g,'').replace(/,/g,' · ')}</td></tr>
+    <tr><td class="pt-label">Linguistic Indicators</td><td class="pt-val">${or.indicators || 0} non-native pattern(s) detected</td></tr>
+    <tr><td class="pt-label">Urgency Signals</td><td class="pt-val">${em.urgency_signals || 0} detected</td></tr>
+    <tr><td class="pt-label">Calm Signals</td><td class="pt-val">${em.calm_signals || 0} detected</td></tr>
+    <tr><td class="pt-label">Data Source</td><td class="pt-val mono" style="font-size:10px">SIEM Alert Chain (${p.source || ''})</td></tr>`;
+}
+
+// ── Render: phishing analysis results
+function renderPhishing(d) {
+  if (!d || !d.total) return;
+  const tot = d.total || 1;
+
+  document.getElementById('k-s').textContent = (d.critical || 0) + (d.high || 0);
+  document.getElementById('ph-total').textContent = d.total;
+  document.getElementById('ph-crit').textContent  = d.critical || 0;
+  document.getElementById('ph-high').textContent  = d.high || 0;
+  document.getElementById('ph-med').textContent   = d.medium || 0;
+  document.getElementById('phish-meta').textContent = `${d.total} URLs · ${d.critical} critical`;
+
+  const B = (label, count, cls, cc) => `
+    <div class="ph-bar-row">
+      <span class="ph-bar-label">${label}</span>
+      <div class="ph-bar-track"><div class="ph-bar-fill fill-${cls}" data-w="${(count/tot*100).toFixed(1)}%" style="width:0%"></div></div>
+      <span class="ph-count ${cc}">${count}</span>
+    </div>`;
+
+  document.getElementById('ph-bars').innerHTML =
+    B('Critical', d.critical||0, 'c', 'cc') +
+    B('High',     d.high||0,     'h', 'ch') +
+    B('Medium',   d.medium||0,   'm', 'cm') +
+    B('Low',      d.low||0,      'l', '');
+
+  // Animate bars after a tiny delay (allows DOM to paint first)
+  setTimeout(() => document.querySelectorAll('.ph-bar-fill').forEach(e => e.style.width = e.dataset.w), 80);
+
+  if (d.top_threats && d.top_threats.length) {
+    document.getElementById('phish-url-tbody').innerHTML = d.top_threats.map(t => `
+      <tr>
+        <td><span class="sev sev-${t.risk_level}">${t.risk_level}</span></td>
+        <td class="url-cell" title="${t.url}">${t.url}</td>
+        <td class="score-c ${t.risk_score>=70?'hi':t.risk_score>=40?'md':'lo'}">${t.risk_score}/100</td>
+        <td class="mono">${t.real_domain || '—'}</td>
+      </tr>`).join('');
+  }
+}
+
+// ── Run scan — calls /api/scan, streams terminal output, then refreshes all data
+async function runScan() {
+  if (scanning) return;
+  scanning = true;
+
+  const tb  = document.getElementById('topbar-scan-btn');
+  const bb  = document.getElementById('big-scan-btn');
+  const out = document.getElementById('terminal-out');
+
+  tb.className = 'btn btn-primary running';
+  tb.textContent = 'Scanning…';
+  if (bb) { bb.disabled = true; bb.textContent = 'Running…'; }
+  out.innerHTML = '';
+
+  // Initial terminal lines
+  const initLines = [
+    ['$ threatmind --detect --source data/sample_logs.json', 't-cmd'],
+    ['[*] Initializing detection engine…', 't-info'],
+    ['[*] Loading rule set: brute_force, brute_success, sensitive_file, external_conn', 't-info'],
+    ['[*] Ingesting log entries…', ''],
+  ];
+  for (const [t, c] of initLines) { await delay(290); ap(out, t, c); }
+
+  try {
+    const res = await fetch('/api/scan', { method: 'POST' });
+    const d   = await res.json();
+
+    if (d.status === 'success') {
+      const resultLines = [
+        [`[+] Loaded ${(d.alerts_generated||0) + 30} log entries from file`, 't-ok'],
+        [`[!] BRUTE_FORCE — T1110 Credential Access`, 't-warn'],
+        [`[!] BRUTE_SUCCESS — T1078 Initial Access  ← CRITICAL`, 't-err'],
+        [`[!] SENSITIVE_FILE — T1083 Discovery`, 't-warn'],
+        [`[!] EXTERNAL_CONN — T1041 Exfiltration  ← CRITICAL`, 't-err'],
+        [`[+] ${d.alerts_generated} alerts  ·  CRITICAL: ${d.critical}  ·  HIGH: ${d.high}`, 't-ok'],
+        [`[+] Saved → reports/alerts.json`, 't-ok'],
+        [`[✓] Scan complete.`, 't-ok'],
+      ];
+      for (const [t, c] of resultLines) { await delay(230); ap(out, t, c); }
+
+      // Refresh all data including the real profiler
+      await fetchAlerts();
+      await fetchPhishing();
+      await fetchProfile();
+      toast(`Scan complete — ${d.alerts_generated} alerts generated`, 'warn');
+    } else {
+      ap(out, `[!] Error: ${d.message || 'Unknown error'}`, 't-err');
+      toast('Scan failed', 'err');
+    }
+  } catch(e) {
+    ap(out, '[!] Scan failed — is Flask running?', 't-err');
+    toast('Scan failed', 'err');
+  }
+
+  // Reset buttons
+  tb.className = 'btn btn-primary';
+  tb.innerHTML = `<svg viewBox="0 0 20 20" fill="currentColor" style="width:13px;height:13px"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>Run Scan`;
+  if (bb) { bb.disabled = false; bb.textContent = 'Execute Scan'; }
+  scanning = false;
+}
+
+// ── Helpers
+function ap(container, text, cls) {
+  const el = document.createElement('div');
+  el.className = 'tline ' + (cls || '');
+  el.textContent = text;
+  container.appendChild(el);
+  container.scrollTop = container.scrollHeight;
+}
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function copyReport() {
+  navigator.clipboard.writeText(document.getElementById('report-body').textContent)
+    .then(() => toast('Report copied to clipboard'));
+}
+
+// ── Init — load all data on page open
+(async () => {
+  await Promise.all([fetchAlerts(), fetchPhishing(), fetchReport(), fetchProfile()]);
+})();
+</script>
+</body>
+</html>

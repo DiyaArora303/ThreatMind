@@ -1,114 +1,6 @@
 [
   {
-    "url": "https://guv.uxq.mybluehost.me/website_72a929c3/input/login.php",
-    "real_domain": "mybluehost.me",
-    "risk_score": 80,
-    "risk_level": "CRITICAL",
-    "signals": {
-      "brands_found": [
-        "login"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 2,
-      "suspicious_words": [
-        "login"
-      ],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://u.to/YVx3Ig",
-    "real_domain": "u.to",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://utsav568.github.io/github.io/",
-    "real_domain": "github.io",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://bhagirath0111.github.io/Amazon1/",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "amazon"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://eemansiddique.github.io/sales-force-static-website",
-    "real_domain": "github.io",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://kiucknlogin.webflow.io/",
-    "real_domain": "webflow.io",
-    "risk_score": 40,
-    "risk_level": "HIGH",
-    "signals": {
-      "brands_found": [
-        "login"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [
-        "login"
-      ],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://kumaraswamybommali.github.io/Ecommerce_UI_Project/",
-    "real_domain": "github.io",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://aevilop.github.io/my-netflix-clone/",
+    "url": "https://yashaitt.github.io/Netflix-clone/netflix-signup.html",
     "real_domain": "github.io",
     "risk_score": 30,
     "risk_level": "MEDIUM",
@@ -124,8 +16,8 @@
     "source": "OpenPhish"
   },
   {
-    "url": "https://robinhood-invests-log-in.webflow.io/",
-    "real_domain": "webflow.io",
+    "url": "http://www.booking-com-clone-kappa.vercel.app/",
+    "real_domain": "vercel.app",
     "risk_score": 0,
     "risk_level": "LOW",
     "signals": {
@@ -138,22 +30,8 @@
     "source": "OpenPhish"
   },
   {
-    "url": "http://ranvijayysinghrathore.github.io/MusicPlayer",
-    "real_domain": "github.io",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://roblox.com.ly/games/8737602449/PLS-DONATE?privateServerLinkCode=28792299428079990719776509390909",
-    "real_domain": "com.ly",
+    "url": "http://f.digitalmaillane.com/igit/4/eqbkr2yNb9z085mxd7NqyoN7agkwbNnicNa91NkxNdN6",
+    "real_domain": "digitalmaillane.com",
     "risk_score": 10,
     "risk_level": "LOW",
     "signals": {
@@ -166,329 +44,7 @@
     "source": "OpenPhish"
   },
   {
-    "url": "https://roblox.com.ge/communities/4587297384/",
-    "real_domain": "com.ge",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://dfgdh1.pages.dev/gp/new-releases/books/12053/ref=zg_bsnr_pg_2_books?ie=UTF8/",
-    "real_domain": "pages.dev",
-    "risk_score": 10,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": true
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://udev.informedgreetings.com/create-greeting",
-    "real_domain": "informedgreetings.com",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://yogisandyoginis.com/z7miibp.htm",
-    "real_domain": "yogisandyoginis.com",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://roblox.com.ge/games/104714047076534/Fun-combat?privateServerLinkCode=28917267103118307728389105348218",
-    "real_domain": "com.ge",
-    "risk_score": 10,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": true
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://satyamhub7544.github.io/Netflix-Clone/",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "netflix"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://ednaldofaceff-jpg.github.io/netflixpage/",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "netflix"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://abhishek040906.github.io/img/",
-    "real_domain": "github.io",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://www.robiox.com.py/games/5814304937/Outfit-Loader-Testing-Place?privateServerLinkCode=813439753017849932846507559915",
-    "real_domain": "com.py",
-    "risk_score": 10,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": true
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://currentnewsalerts.com/s/63bzgfsvbwsfcdx7y9/584dd8/90eab167-7429-489f-99f6-ce86e8d0d81a",
-    "real_domain": "currentnewsalerts.com",
-    "risk_score": 20,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [
-        "alert"
-      ],
-      "url_too_long": true
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://roblox.com.py/users/8874830077/profile",
-    "real_domain": "com.py",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://shopee2449.blogspot.com/",
-    "real_domain": "blogspot.com",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://bestroute.aiko.com.mx/Controllers/Bonos/theme/login.php/",
-    "real_domain": "com.mx",
-    "risk_score": 80,
-    "risk_level": "CRITICAL",
-    "signals": {
-      "brands_found": [
-        "login"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 2,
-      "suspicious_words": [
-        "login"
-      ],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://musicx.live/pspsosao",
-    "real_domain": "musicx.live",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://gestaonucapital.s3.us-east-005.backblazeb2.com/aumento.html",
-    "real_domain": "backblazeb2.com",
-    "risk_score": 40,
-    "risk_level": "HIGH",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 3,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://insstagrram.github.io/",
-    "real_domain": "github.io",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://78987select-fth0-capital-plans.pages.dev/help/contact/851780088854573/",
-    "real_domain": "pages.dev",
-    "risk_score": 10,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": true
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://epdocambodia.org/components/com_user/img/bin/index.html",
-    "real_domain": "epdocambodia.org",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://allan-affecting-modern-air.trycloudflare.com/jose7823432/common/login?id=",
-    "real_domain": "trycloudflare.com",
-    "risk_score": 50,
-    "risk_level": "HIGH",
-    "signals": {
-      "brands_found": [
-        "login"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [
-        "login"
-      ],
-      "url_too_long": true
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://emmanuelobinna62-dotcom.github.io/ig-Clone",
-    "real_domain": "github.io",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://divyansh1502.github.io/Spotify",
-    "real_domain": "github.io",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://lnk.ink/www.robIox.com.share-code-08bc78fca17f69c57b139e0d2-type-Servers/",
-    "real_domain": "lnk.ink",
-    "risk_score": 10,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": true
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://netflix-clone-ruby-six.vercel.app/",
+    "url": "https://netflix-clone-coral-ten.vercel.app/",
     "real_domain": "vercel.app",
     "risk_score": 30,
     "risk_level": "MEDIUM",
@@ -504,7 +60,7 @@
     "source": "OpenPhish"
   },
   {
-    "url": "http://ushantsingh.github.io/Netflix-Clone",
+    "url": "https://amn1704.github.io/Project3_Netflix-Landing-Page-Clone/",
     "real_domain": "github.io",
     "risk_score": 30,
     "risk_level": "MEDIUM",
@@ -520,71 +76,7 @@
     "source": "OpenPhish"
   },
   {
-    "url": "http://abhirajsinghrajpoot.github.io/NetflixClone",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "netflix"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://emmanuel3186.github.io/amazon-clone",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "amazon"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://gauravdhage.github.io/NetflixUI/",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "netflix"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://ayushsingh728.github.io/Netflix-Clone",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "netflix"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://www.robiox.com.py/users/240787414796/profile",
+    "url": "https://roblox.com.py/users/6557110906/profile",
     "real_domain": "com.py",
     "risk_score": 0,
     "risk_level": "LOW",
@@ -598,55 +90,23 @@
     "source": "OpenPhish"
   },
   {
-    "url": "https://rblx.foo/s/rxgKLr",
-    "real_domain": "rblx.foo",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "http://trezr-birdgge.pages.dev/",
-    "real_domain": "pages.dev",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://accounts.bmwweb.academy/en/login",
-    "real_domain": "bmwweb.academy",
-    "risk_score": 50,
-    "risk_level": "HIGH",
+    "url": "http://net-wok.s3-website.us-east-2.amazonaws.com/",
+    "real_domain": "amazonaws.com",
+    "risk_score": 70,
+    "risk_level": "CRITICAL",
     "signals": {
       "brands_found": [
-        "account",
-        "login"
+        "amazon"
       ],
       "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [
-        "login",
-        "account"
-      ],
+      "subdomain_abuse": 3,
+      "suspicious_words": [],
       "url_too_long": false
     },
     "source": "OpenPhish"
   },
   {
-    "url": "https://www.robiox.com.py/users/311923272397/profile",
+    "url": "https://www.robiox.com.py/users/226332101233/profile",
     "real_domain": "com.py",
     "risk_score": 0,
     "risk_level": "LOW",
@@ -660,54 +120,8 @@
     "source": "OpenPhish"
   },
   {
-    "url": "https://ledhfj-jihghjg.pages.dev/index.htm",
-    "real_domain": "pages.dev",
-    "risk_score": 0,
-    "risk_level": "LOW",
-    "signals": {
-      "brands_found": [],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://spoorthikolloju-web.github.io/Amazon-clone/",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "amazon"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://adityahulimane01.github.io/Netflix-Clone/",
-    "real_domain": "github.io",
-    "risk_score": 30,
-    "risk_level": "MEDIUM",
-    "signals": {
-      "brands_found": [
-        "netflix"
-      ],
-      "suspicious_tld": null,
-      "subdomain_abuse": 0,
-      "suspicious_words": [],
-      "url_too_long": false
-    },
-    "source": "OpenPhish"
-  },
-  {
-    "url": "https://dfgdh1.pages.dev/-/zh/Best-Sellers-Wii-/zgbs/videogames/10111124011/ref=zg_bs_pg_2_videogames?_encoding=UTF8",
-    "real_domain": "pages.dev",
+    "url": "https://ipfs.io/ipfs/bafkreigzys3rczbnczb5s7o2r3j5av4izhqvml6gyxah2d6v27apc4rjpy",
+    "real_domain": "ipfs.io",
     "risk_score": 10,
     "risk_level": "LOW",
     "signals": {
@@ -720,7 +134,7 @@
     "source": "OpenPhish"
   },
   {
-    "url": "https://geliettech.github.io/NetflixClone/",
+    "url": "http://greamreaper01.github.io/Netflix",
     "real_domain": "github.io",
     "risk_score": 30,
     "risk_level": "MEDIUM",
@@ -736,7 +150,69 @@
     "source": "OpenPhish"
   },
   {
-    "url": "https://satbhai444.github.io/NETFLIX-CLONE-PAGE/",
+    "url": "https://securebankinggroup.org/s/63BZGFSVBWSFCDX7Y9/584dd8/90eab167-7429-489f-99f6-ce86e8d0d81a",
+    "real_domain": "securebankinggroup.org",
+    "risk_score": 60,
+    "risk_level": "HIGH",
+    "signals": {
+      "brands_found": [
+        "bank",
+        "secure"
+      ],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [
+        "secure",
+        "banking"
+      ],
+      "url_too_long": true
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://bybitenur.com/",
+    "real_domain": "bybitenur.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://u.carddsapply.com/",
+    "real_domain": "carddsapply.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://mitta_mask7.godaddysites.com/",
+    "real_domain": "godaddysites.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://pranjaldeshmukh3.github.io/Netflix-clone/",
     "real_domain": "github.io",
     "risk_score": 30,
     "risk_level": "MEDIUM",
@@ -744,6 +220,500 @@
       "brands_found": [
         "netflix"
       ],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://roblox.com.py/games/85811969623710/Sword-Fighting-773855?privateServerLinkCode=12526670538663419359322718502527",
+    "real_domain": "com.py",
+    "risk_score": 10,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": true
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://dpd.parcelstatmr.bond/com",
+    "real_domain": "parcelstatmr.bond",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://yogisandyoginis.com/zeiuml.htm",
+    "real_domain": "yogisandyoginis.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://suportkucon.webflow.io/",
+    "real_domain": "webflow.io",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://www.mettam-muskgolinx1.godaddysites.com/",
+    "real_domain": "godaddysites.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://kucoinneilginus.webflow.io/",
+    "real_domain": "webflow.io",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.centrumdebadde.nl/wp-content/cache/tmpWpfc/.cache/",
+    "real_domain": "centrumdebadde.nl",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.centrumdebadde.nl/wp-content/cache/tmpWpfc/.cache/verif1.php",
+    "real_domain": "centrumdebadde.nl",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.centrumdebadde.nl/wp-content/cache/tmpWpfc/.cache/proses2.php",
+    "real_domain": "centrumdebadde.nl",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.centrumdebadde.nl/wp-content/cache/tmpWpfc/.cache/otp.php",
+    "real_domain": "centrumdebadde.nl",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.centrumdebadde.nl/wp-content/cache/tmpWpfc/.cache/proses3.php",
+    "real_domain": "centrumdebadde.nl",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.centrumdebadde.nl/wp-content/cache/tmpWpfc/.cache/done.php",
+    "real_domain": "centrumdebadde.nl",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.centrumdebadde.nl/wp-content/cache/tmpWpfc/.cache/proses4.php",
+    "real_domain": "centrumdebadde.nl",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.centrumdebadde.nl/wp-content/cache/tmpWpfc/.cache/verif2.php",
+    "real_domain": "centrumdebadde.nl",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://s.carddsapply.com/",
+    "real_domain": "carddsapply.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://xbox-clone-5h5w.vercel.app/",
+    "real_domain": "vercel.app",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://www.xbox-clone-5h5w.vercel.app/",
+    "real_domain": "vercel.app",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.ro-binhood.godaddysites.com/",
+    "real_domain": "godaddysites.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://www.netflix-clone-project-by-using-html-and-css.vercel.app/",
+    "real_domain": "vercel.app",
+    "risk_score": 30,
+    "risk_level": "MEDIUM",
+    "signals": {
+      "brands_found": [
+        "netflix"
+      ],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://dpd.parcelstahcg.bond/com",
+    "real_domain": "parcelstahcg.bond",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://en.codashop-zone.shop/",
+    "real_domain": "codashop-zone.shop",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://qantascredit-home.cc/.info.com/",
+    "real_domain": "qantascredit-home.cc",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://suitapps.zapier.app/us-en",
+    "real_domain": "zapier.app",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://meatamask_us_logi.godaddysites.com/",
+    "real_domain": "godaddysites.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://httpss-roblox.co/users/1567517298/profile",
+    "real_domain": "httpss-roblox.co",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://news.specialfors.com/",
+    "real_domain": "specialfors.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "http://learnmore.humanresources-team.com/s/63BZGFSVBWSFCDX7Y9/584dd8/90eab167-7429-489f-99f6-ce86e8d0d81a",
+    "real_domain": "humanresources-team.com",
+    "risk_score": 10,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": true
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.5mp.eu/fajlok2/educaciones/index_www.5mp.eu_.html",
+    "real_domain": "5mp.eu",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://harshit002212334555.github.io/Amazon-clone/",
+    "real_domain": "github.io",
+    "risk_score": 30,
+    "risk_level": "MEDIUM",
+    "signals": {
+      "brands_found": [
+        "amazon"
+      ],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://pub-bf410a88ec67437fb183b22f87a37d63.r2.dev/index.html",
+    "real_domain": "r2.dev",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://d.carddsapply.com/",
+    "real_domain": "carddsapply.com",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.robiox.com.gr/games/142823291/Murder-Mystery-2?privateServerLinkCode=14089573498682502468052016191464",
+    "real_domain": "com.gr",
+    "risk_score": 10,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": true
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://woodb010.github.io/hung/",
+    "real_domain": "github.io",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": false
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://clickheretofail.028426.com/2513501.doc/18a80a/fad0f483-81b2-45c6-ad47-7272058d9cb6",
+    "real_domain": "028426.com",
+    "risk_score": 10,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
+      "suspicious_tld": null,
+      "subdomain_abuse": 0,
+      "suspicious_words": [],
+      "url_too_long": true
+    },
+    "source": "OpenPhish"
+  },
+  {
+    "url": "https://www.robiox.com.ps/users/462326172/profile",
+    "real_domain": "com.ps",
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "signals": {
+      "brands_found": [],
       "suspicious_tld": null,
       "subdomain_abuse": 0,
       "suspicious_words": [],

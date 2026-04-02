@@ -15,12 +15,10 @@ init(autoreset=True)
 def fetch_phishtank():
     """
     Fetches real phishing URL data from PhishTank.
-    PhishTank is a free public database of confirmed phishing sites
-    used by real threat intelligence teams worldwide.
     """
     print(Fore.CYAN + "[*] Fetching real phishing data from PhishTank...")
     
-    # PhishTank's public JSON feed — no API key needed
+    # PhishTank's public JSON feed
     url = "http://data.phishtank.com/data/online-valid.json"
     
     try:
@@ -28,12 +26,15 @@ def fetch_phishtank():
         response = requests.get(url, headers=headers, timeout=30)
         
         if response.status_code == 200:
-            data = response.json()
-            
-            # Take first 50 entries — enough to work with
+            try:
+                data = response.json()
+            except json.JSONDecodeError:
+                print(Fore.YELLOW + "[!] PhishTank returned non-JSON data (possibly a rate-limit page).")
+                return fetch_phishtank_backup()
+
+            # Take first 50 entries
             samples = data[:50]
             
-            # Restructure into ThreatMind format
             processed = []
             for entry in samples:
                 processed.append({
@@ -47,7 +48,6 @@ def fetch_phishtank():
                     "is_malicious": True
                 })
             
-            # Save to file
             os.makedirs("data", exist_ok=True)
             with open("data/real_phishing_data.json", "w") as f:
                 json.dump(processed, f, indent=2)
@@ -68,10 +68,7 @@ def fetch_phishtank():
 
 
 def fetch_phishtank_backup():
-    """
-    Backup: Pulls from OpenPhish — another free public phishing feed
-    Used when PhishTank is rate limiting or unavailable
-    """
+    """Backup: Pulls from OpenPhish"""
     print(Fore.CYAN + "[*] Trying OpenPhish feed...")
     
     url = "https://openphish.com/feed.txt"
@@ -95,6 +92,7 @@ def fetch_phishtank_backup():
                     "is_malicious": True
                 })
             
+            os.makedirs("data", exist_ok=True)
             with open("data/real_phishing_data.json", "w") as f:
                 json.dump(processed, f, indent=2)
             
@@ -108,28 +106,22 @@ def fetch_phishtank_backup():
 
 
 def fetch_windows_logs():
-    """
-    Reads REAL security logs from your actual Windows machine.
-    This is live data from your own system.
-    
-    CONCEPT: Windows logs everything in Event Logs.
-    Security Event ID 4625 = Failed Login (exactly what we detect)
-    Security Event ID 4624 = Successful Login
-    Security Event ID 4688 = Process Created (attackers run processes)
-    """
+    """Reads REAL security logs from your actual Windows machine."""
     print(Fore.CYAN + "\n[*] Reading real Windows Event Logs from your system...")
     
     try:
         import subprocess
         
-        # PowerShell command to pull recent security events
-        # Event ID 4625 = Failed logon — exactly what brute force generates
-        ps_command = """
-        Get-EventLog -LogName Security -Newest 100 -ErrorAction SilentlyContinue |
-        Where-Object {$_.EventID -in @(4624, 4625, 4688)} |
-        Select-Object TimeGenerated, EventID, Message |
-        ConvertTo-Json
-        """
+        # FIXED: Cleaned up the PowerShell command string indentation
+        ps_command = (
+            "$events = @(); "
+            "$ids = @(4624,4625,4627,4648,4670,4688,4698,4702,4720,4726,4732,4756,4776,4778,4779); "
+            "foreach($id in $ids){ "
+            "$ev = Get-EventLog -LogName Security -Newest 20 -InstanceId $id -ErrorAction SilentlyContinue; "
+            "if($ev){ $events += $ev } "
+            "}; "
+            "$events | Select-Object TimeGenerated, EventID, Message | ConvertTo-Json"
+        )
         
         result = subprocess.run(
             ["powershell", "-Command", ps_command],
@@ -145,25 +137,24 @@ def fetch_windows_logs():
                     events = [events]
                 
                 processed = []
+                event_type_map = {
+                    4624: "LOGIN_SUCCESS",
+                    4625: "LOGIN_FAILED",
+                    4688: "PROCESS_CREATED"
+                }
+                
                 for event in events:
                     event_id = event.get("EventID", 0)
-                    
-                    # Map Windows Event IDs to our format
-                    event_type_map = {
-                        4624: "LOGIN_SUCCESS",
-                        4625: "LOGIN_FAILED",
-                        4688: "PROCESS_CREATED"
-                    }
-                    
                     processed.append({
                         "timestamp":  str(event.get("TimeGenerated", "")),
                         "event_type": event_type_map.get(event_id, "UNKNOWN"),
                         "event_id":   event_id,
                         "source":     "Windows Event Log",
                         "details":    str(event.get("Message", ""))[:200],
-                        "is_malicious": False  # Real logs — we let our engine decide
+                        "is_malicious": False
                     })
                 
+                os.makedirs("data", exist_ok=True)
                 with open("data/real_windows_logs.json", "w") as f:
                     json.dump(processed, f, indent=2)
                 
@@ -186,17 +177,14 @@ def fetch_windows_logs():
 if __name__ == "__main__":
     print(Fore.RED + """
 ╔══════════════════════════════════════════╗
-║   THREATMIND v3 — REAL DATA FETCHER     ║
+║    THREATMIND v3 — REAL DATA FETCHER     ║
 ╚══════════════════════════════════════════╝
     """)
     
-    # Fetch phishing data
     phishing = fetch_phishtank()
-    
-    # Fetch Windows logs
     windows = fetch_windows_logs()
     
     print(Fore.CYAN + "\n[*] Real Data Summary:")
-    print(Fore.GREEN + f"    Phishing URLs:   {len(phishing)}")
-    print(Fore.GREEN + f"    Windows Events:  {len(windows)}")
+    print(Fore.GREEN + f"    Phishing URLs:   {len(phishing) if phishing else 0}")
+    print(Fore.GREEN + f"    Windows Events:  {len(windows) if windows else 0}")
     print(Fore.CYAN + "\n[+] ThreatMind is now running on real data.")
